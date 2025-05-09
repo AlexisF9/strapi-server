@@ -397,6 +397,10 @@ export interface ApiAdvertisementAdvertisement
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    distribution_type: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::distribution-type.distribution-type'
+    >;
     energy_performance: Schema.Attribute.Relation<
       'oneToOne',
       'api::energy-performance.energy-performance'
@@ -418,7 +422,6 @@ export interface ApiAdvertisementAdvertisement
     publishedAt: Schema.Attribute.DateTime;
     rooms: Schema.Attribute.Integer;
     surface: Schema.Attribute.Integer;
-    type: Schema.Attribute.Relation<'oneToOne', 'api::type.type'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -517,6 +520,35 @@ export interface ApiCharacteristicCharacteristic
   };
 }
 
+export interface ApiDistributionTypeDistributionType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'distribution_types';
+  info: {
+    displayName: 'DistributionType';
+    pluralName: 'distribution-types';
+    singularName: 'distribution-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::distribution-type.distribution-type'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEnergyPerformanceEnergyPerformance
   extends Struct.CollectionTypeSchema {
   collectionName: 'energy_performances';
@@ -539,31 +571,6 @@ export interface ApiEnergyPerformanceEnergyPerformance
       'api::energy-performance.energy-performance'
     > &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTypeType extends Struct.CollectionTypeSchema {
-  collectionName: 'types';
-  info: {
-    displayName: 'Type';
-    pluralName: 'types';
-    singularName: 'type';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::type.type'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1084,8 +1091,8 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::characteristic-category.characteristic-category': ApiCharacteristicCategoryCharacteristicCategory;
       'api::characteristic.characteristic': ApiCharacteristicCharacteristic;
+      'api::distribution-type.distribution-type': ApiDistributionTypeDistributionType;
       'api::energy-performance.energy-performance': ApiEnergyPerformanceEnergyPerformance;
-      'api::type.type': ApiTypeType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

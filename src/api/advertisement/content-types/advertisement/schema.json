@@ -51,11 +51,6 @@
       "relation": "oneToOne",
       "target": "api::category.category"
     },
-    "type": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::type.type"
-    },
     "energy_performance": {
       "type": "relation",
       "relation": "oneToOne",
@@ -68,6 +63,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::characteristic.characteristic"
+    },
+    "distribution_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::distribution-type.distribution-type"
     }
   }
 }

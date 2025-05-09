@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "types",
+  "collectionName": "distribution_types",
   "info": {
-    "singularName": "type",
-    "pluralName": "types",
-    "displayName": "Type"
+    "singularName": "distribution-type",
+    "pluralName": "distribution-types",
+    "displayName": "DistributionType"
   },
   "options": {
     "draftAndPublish": true
