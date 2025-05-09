@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "energy_performances",
+  "info": {
+    "singularName": "energy-performance",
+    "pluralName": "energy-performances",
+    "displayName": "EnergyPerformance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "letter": {
+      "type": "string"
+    }
+  }
+}

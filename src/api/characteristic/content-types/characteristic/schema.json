@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "characteristics",
+  "info": {
+    "singularName": "characteristic",
+    "pluralName": "characteristics",
+    "displayName": "Characteristic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "characteristic_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::characteristic-category.characteristic-category"
+    }
+  }
+}

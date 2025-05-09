@@ -4,7 +4,8 @@
   "info": {
     "singularName": "advertisement",
     "pluralName": "advertisements",
-    "displayName": "Advertisement"
+    "displayName": "Advertisement",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,20 +21,18 @@
       "type": "integer"
     },
     "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "surface": {
       "type": "integer"
-    },
-    "garden": {
-      "type": "boolean"
     },
     "free": {
       "type": "boolean"
@@ -44,14 +43,31 @@
     "rooms": {
       "type": "integer"
     },
-    "furnished": {
-      "type": "boolean"
-    },
     "address": {
       "type": "string"
     },
-    "elevator": {
-      "type": "boolean"
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::type.type"
+    },
+    "energy_performance": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::energy-performance.energy-performance"
+    },
+    "construction_year": {
+      "type": "integer"
+    },
+    "characteristics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::characteristic.characteristic"
     }
   }
 }

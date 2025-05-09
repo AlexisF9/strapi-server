@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "characteristic_categories",
+  "info": {
+    "singularName": "characteristic-category",
+    "pluralName": "characteristic-categories",
+    "displayName": "CharacteristicCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
