@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advertisements",
+  "info": {
+    "singularName": "advertisement",
+    "pluralName": "advertisements",
+    "displayName": "Advertisement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "pictures": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "surface": {
+      "type": "integer"
+    },
+    "garden": {
+      "type": "boolean"
+    },
+    "free": {
+      "type": "boolean"
+    },
+    "pieces": {
+      "type": "integer"
+    },
+    "rooms": {
+      "type": "integer"
+    },
+    "furnished": {
+      "type": "boolean"
+    },
+    "address": {
+      "type": "string"
+    },
+    "elevator": {
+      "type": "boolean"
+    }
+  }
+}
