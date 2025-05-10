@@ -18,7 +18,7 @@
       "type": "text"
     },
     "price": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "pictures": {
       "type": "media",
@@ -32,7 +32,7 @@
       ]
     },
     "surface": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "free": {
       "type": "boolean"
@@ -57,7 +57,7 @@
       "target": "api::energy-performance.energy-performance"
     },
     "construction_year": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "characteristics": {
       "type": "relation",

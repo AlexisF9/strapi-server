@@ -392,7 +392,7 @@ export interface ApiAdvertisementAdvertisement
       'oneToMany',
       'api::characteristic.characteristic'
     >;
-    construction_year: Schema.Attribute.Integer;
+    construction_year: Schema.Attribute.BigInteger;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -418,10 +418,10 @@ export interface ApiAdvertisementAdvertisement
       true
     >;
     pieces: Schema.Attribute.Integer;
-    price: Schema.Attribute.Integer;
+    price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     rooms: Schema.Attribute.Integer;
-    surface: Schema.Attribute.Integer;
+    surface: Schema.Attribute.BigInteger;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
