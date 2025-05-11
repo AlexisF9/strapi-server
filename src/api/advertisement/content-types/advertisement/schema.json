@@ -43,9 +43,6 @@
     "rooms": {
       "type": "integer"
     },
-    "address": {
-      "type": "string"
-    },
     "category": {
       "type": "relation",
       "relation": "oneToOne",
@@ -68,6 +65,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::distribution-type.distribution-type"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
     }
   }
 }
