@@ -425,7 +425,7 @@ export interface ApiAdvertisementAdvertisement
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     distribution_type: Schema.Attribute.Relation<
       'oneToOne',
       'api::distribution-type.distribution-type'
@@ -435,22 +435,27 @@ export interface ApiAdvertisementAdvertisement
       'api::energy-performance.energy-performance'
     >;
     free: Schema.Attribute.Boolean;
+    gaz_performance: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::gaz-performance.gaz-performance'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::advertisement.advertisement'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     pictures: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
-    pieces: Schema.Attribute.Integer;
-    price: Schema.Attribute.BigInteger;
+    > &
+      Schema.Attribute.Required;
+    pieces: Schema.Attribute.Integer & Schema.Attribute.Required;
+    price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    rooms: Schema.Attribute.Integer;
-    surface: Schema.Attribute.BigInteger;
+    rooms: Schema.Attribute.Integer & Schema.Attribute.Required;
+    surface: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -598,6 +603,35 @@ export interface ApiEnergyPerformanceEnergyPerformance
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::energy-performance.energy-performance'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGazPerformanceGazPerformance
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'gaz_performances';
+  info: {
+    displayName: 'GazPerformance';
+    pluralName: 'gaz-performances';
+    singularName: 'gaz-performance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    letter: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gaz-performance.gaz-performance'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1123,6 +1157,7 @@ declare module '@strapi/strapi' {
       'api::characteristic.characteristic': ApiCharacteristicCharacteristic;
       'api::distribution-type.distribution-type': ApiDistributionTypeDistributionType;
       'api::energy-performance.energy-performance': ApiEnergyPerformanceEnergyPerformance;
+      'api::gaz-performance.gaz-performance': ApiGazPerformanceGazPerformance;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -12,18 +12,21 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "price": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "pictures": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -32,16 +35,19 @@
       ]
     },
     "surface": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "free": {
       "type": "boolean"
     },
     "pieces": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "rooms": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "category": {
       "type": "relation",
@@ -70,6 +76,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::address.address"
+    },
+    "gaz_performance": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gaz-performance.gaz-performance"
     }
   }
 }

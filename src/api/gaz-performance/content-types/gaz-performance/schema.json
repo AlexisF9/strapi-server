@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gaz_performances",
+  "info": {
+    "singularName": "gaz-performance",
+    "pluralName": "gaz-performances",
+    "displayName": "GazPerformance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "letter": {
+      "type": "string"
+    }
+  }
+}
